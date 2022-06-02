@@ -10,7 +10,8 @@ async def on_ready(): #Status
     await client.change_presence(status = discord.Status.online, activity = discord.Game('with data. Hello crew!'))
     print('I am online, Captain.')
 
-for filename in os.listdir('./cogs'): #Load Cogs
+#Go through all the files in cogs and load them.
+for filename in os.listdir(path + '\ZeinaPhoenix\cogs'): #Load Cogs
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
@@ -30,6 +31,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    #Response to Hello
     if message.content.startswith('Zeina, hello'):
         hello_to_me = random.choice(['Hello!',
                                     'Hey!',
@@ -41,14 +43,14 @@ async def on_message(message):
                                     'Merhaba!',
                                     'こんにちは!'])
         await message.channel.send(hello_to_me)
-
+    #Response to How Are You?
     elif message.content.startswith('Zeina, how are you'):
         how_am_i = random.choice(['I am fine, thank you!',
                                 'Great! Thanks for asking!',
                                 'My systems are running as expected.',
                                 'Up and running normally.'])
         await message.channel.send(how_am_i)
-    
+    #Response to What Are You Doing?
     elif message.content.startswith('Zeina, what are you doing'):
         what_i_do = random.choice(['Doing my tasks',
                                 'Supervising the crew.',
@@ -59,7 +61,7 @@ async def on_message(message):
    
     await client.process_commands(message)    
 
-@client.event
+@client.event #Error responses
 async def on_command_error(ctx, error): #Error Respond
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('Please pass in all required arguments.')
