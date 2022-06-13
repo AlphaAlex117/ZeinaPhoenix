@@ -12,7 +12,7 @@ async def on_ready(): #Status
 
 path = os.getcwd()
 #Go through all the files in cogs and load them.
-for filename in os.listdir(path + '\cogs'): #Load Cogs
+for filename in os.listdir('./cogs'): #Load Cogs
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
