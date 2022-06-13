@@ -10,6 +10,7 @@ async def on_ready(): #Status
     await client.change_presence(status = discord.Status.online, activity = discord.Game('with data. Hello crew!'))
     print('I am online, Captain.')
 
+path = os.getcwd()
 #Go through all the files in cogs and load them.
 for filename in os.listdir(path + '\ZeinaPhoenix\cogs'): #Load Cogs
     if filename.endswith('.py'):

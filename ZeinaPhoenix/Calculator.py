@@ -4,8 +4,11 @@ import math
 
 class SciCalculator(commands.Cog):
 
+    #Initialization
     def _init_(self, client):
-        self.client = client
+        self.client = client #client
+
+        equation
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -16,6 +19,7 @@ class SciCalculator(commands.Cog):
         for x in premise:
             print(x)
             
+    
 
 
 def setup(client):
