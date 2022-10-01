@@ -1,2 +1,2 @@
 # ZeinaPhoenix
-COOL IDK BOT
+Practicing Python with a Discord Bot. 
